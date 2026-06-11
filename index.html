@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Napoli Personeel App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="icon.png">
+</head>
+<body>
+
+    <!-- Bovenbalk -->
+    <header>
+        <button id="menu-btn" onclick="toggleMenu()">☰</button>
+        <h1 id="app-title">Napoli Personeel</h1>
+        <div style="width: 30px;"></div>
+    </header>
+
+    <!-- Zijmenu (Hamburger menu linksboven) -->
+    <nav id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>S.S.C. Napoli</h3>
+            <button class="close-btn" onclick="toggleMenu()">✕</button>
+        </div>
+        <ul>
+            <li><a href="#" onclick="switchPage('main-page')" id="menu-schedule">📅 Werkschema</a></li>
+            <li><a href="#" onclick="switchPage('calc-page')" id="menu-salary">💰 Salaris</a></li>
+            <li><a href="#" onclick="switchPage('leave-page')" id="menu-leave">✈️ Vrij vragen</a></li>
+            <li><a href="#" onclick="switchPage('settings-page')" id="menu-settings">⚙️ Instellingen</a></li>
+        </ul>
+    </nav>
+    <div id="sidebar-overlay" onclick="toggleMenu()"></div>
+
+    <!-- PAGINA 1: Werkschema -->
+    <main id="main-page" class="page active">
+        <h2 id="title-schedule">📅 Werkschema Vandaag</h2>
+        <div id="schedule-container"></div>
+    </main>
+
+    <!-- PAGINA 2: Salaris Calculator -->
+    <main id="calc-page" class="page">
+        <h2 id="title-salary">💰 Salaris Calculator</h2>
+        <div class="card">
+            <p id="calc-info" style="margin-bottom: 12px; color: #555;"></p>
+            <label for="hourly-wage" id="label-wage">Mijn Uurloon (€):</label>
+            <input type="number" id="hourly-wage" placeholder="Bijv. 12.50" step="0.10" oninput="berekenAutomatischSalaris()">
+            <h3 id="salary-result" style="margin-top:20px; color:#0054A6; font-size: 22px;">Totaal: € 0.00</h3>
+        </div>
+    </main>
+
+    <!-- PAGINA 3: Vrij Vragen -->
+    <main id="leave-page" class="page">
+        <h2 id="title-leave-page">✈️ Vrij Vragen</h2>
+        <form id="leave-form" class="card" onsubmit="vraagVerlofAan(event)">
+            <label for="employee-name" id="label-name">Jouw Naam:</label>
+            <input type="text" id="employee-name" placeholder="Bijv. Mark" required>
+
+            <label for="leave-date" id="label-date">Datum:</label>
+            <input type="date" id="leave-date" required>
+            
+            <label for="leave-reason" id="label-reason">Reden van aanvraag:</label>
+            <textarea id="leave-reason" placeholder="Bijv. Familiebezoek" required></textarea>
+            
+            <button type="submit" id="btn-submit-leave">Aanvraag Verzenden</button>
+        </form>
+        
+        <h2 id="title-overview" style="margin-top: 25px;">📊 Status Aanvragen</h2>
+        <div id="overview-container"></div>
+    </main>
+
+    <!-- PAGINA 4: Instellingen -->
+    <main id="settings-page" class="page">
+        <h2 id="title-settings-page">⚙️ Instellingen</h2>
+        <div class="card">
+            <label for="language-select" id="label-lang">Kies een taal / Choose language:</label>
+            <select id="language-select" style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+                <option value="nl">🇳🇱 Nederlands</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="de">🇩🇪 Deutsch</option>
+            </select>
+        </div>
+        <div class="card">
+            <h3 id="title-manager-mode">Beheerdersmodus</h3>
+            <p id="manager-desc" style="margin-bottom: 10px; color:#666;">Schakel de Baas-modus in om aanvragen te keuren of af te keuren.</p>
+            <button id="btn-toggle-role" onclick="toggleRol()" style="background-color: #6c757d;">💼 Switch naar Manager</button>
+        </div>
+    </main>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(() => console.log('PWA geregistreerd.'))
+                .catch((err) => console.log('PWA fout:', err));
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+

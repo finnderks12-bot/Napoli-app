@@ -1,0 +1,29 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, sans-serif; }
+body { background-color: #f4f7f9; }
+header { background-color: #0054A6; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 90; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+#menu-btn { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+.sidebar { position: fixed; top: 0; left: -260px; width: 260px; height: 100%; background-color: #ffffff; z-index: 100; transition: 0.3s ease; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
+.sidebar.open { left: 0; }
+.sidebar-header { background-color: #0054A6; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+.close-btn { background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
+.sidebar ul { list-style: none; padding: 20px 0; }
+.sidebar ul li a { display: block; padding: 15px 25px; color: #333; text-decoration: none; font-size: 16px; font-weight: 500; }
+.sidebar ul li a:hover { background-color: #e6f0fa; color: #0054A6; }
+#sidebar-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 95; }
+#sidebar-overlay.active { display: block; }
+main { padding: 20px; }
+.page { display: none; }
+.page.active { display: block; }
+h2 { margin-bottom: 15px; color: #0054A6; }
+.card { background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: relative; }
+.card h3 { color: #0054A6; }
+label { display: block; margin-top: 10px; margin-bottom: 5px; font-weight: bold; color: #555; }
+input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px; font-size: 16px; }
+button { width: 100%; padding: 12px; background-color: #0054A6; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 16px; }
+button:hover { background-color: #003d7a; }
+.status-badge { display: inline-block; padding: 3px 8px; border-radius: 20px; font-size: 12px; font-weight: bold; margin-top: 5px; }
+.status-pending { background-color: #ffeeba; color: #856404; }
+.status-approved { background-color: #d4edda; color: #155724; }
+.status-rejected { background-color: #f8d7da; color: #721c24; }
+.card-actions { display: flex; gap: 5px; margin-top: 10px; }
+.card-actions button { padding: 6px; font-size: 12px; }

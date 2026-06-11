@@ -1,0 +1,17 @@
+{
+  "name": "Napoli Personeel App",
+  "short_name": "NapoliApp",
+  "description": "PWA Personeelsapplicatie in S.S.C. Napoli clubstijl.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f4f7f9",
+  "theme_color": "#0054A6",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
