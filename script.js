@@ -61,6 +61,18 @@ const vertalingen = {
         calcInfo: `Ihr Chef hat **${GEPLANDE_UREN} Stunden** für Sie eingeplant.`, labelWage: "Mein Stundenlohn (€):", labelName: "Ihr Name:", labelDate: "Datum:", labelReason: "Grund für den Antrag:",
         btnSubmitLeave: "Antrag Absenden", labelLang: "Sprache wählen:", titleManagerMode: "Manager-Modus", managerDesc: "Schalten Sie in den Manager-Modus, um Anträge zu prüfen.",
         btnToManager: "💼 Zum Manager wechseln", btnToEmployee: "👤 Zum Mitarbeiter wechseln", statusPending: "Ausstehend", statusApproved: "Genehmigt", statusRejected: "Abgelehnt",
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.querySelector('.menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (menuBtn && navMenu) {
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
+});
+
         promptReason: "Geben Sie den Grund voor diese Entscheidung ein:", alertSuccess: "Antrag erfolgreich gesendet!", noRequests: "Keine aktuellen Anträge.", totalText: "Gesamt: € "
     }
 };
