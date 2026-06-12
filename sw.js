@@ -1,4 +1,4 @@
-const CACHE_NAME = 'napoli-staff-v1';
+const CACHE_NAME = 'napoli-v2';=
 const CACHE_ASSETS = ['index.html', 'style.css', 'script.js', 'manifest.json', 'icon.png'];
 
 self.addEventListener('install', (e) => {
