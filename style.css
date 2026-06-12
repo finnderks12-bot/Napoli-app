@@ -27,3 +27,6 @@ button:hover { background-color: #003d7a; }
 .status-rejected { background-color: #f8d7da; color: #721c24; }
 .card-actions { display: flex; gap: 5px; margin-top: 10px; }
 .card-actions button { padding: 6px; font-size: 12px; }
+.sidebar.active {
+    transform: translateX(0);
+}
